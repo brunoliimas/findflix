@@ -1,0 +1,8 @@
+{
+  "name": "findflix",
+  "version": "1.0.0",
+  "description": "Busca instantânea de filmes usando OMDB API",
+  "author": "Bruno Lima",
+  "main": "index.html",
+  "license": "MIT"
+}

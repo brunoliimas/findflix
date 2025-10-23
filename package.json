@@ -4,5 +4,12 @@
   "description": "Busca instantânea de filmes usando OMDB API",
   "author": "Bruno Lima",
   "main": "index.html",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "sass:watch": "sass --watch src/scss/main.scss:dist/css/style.css --style expanded",
+    "sass:build": "sass src/scss/main.scss:dist/css/style.css --style compressed --no-source-map"
+  },
+  "devDependencies": {
+    "sass": "^1.93.2"
+  }
 }

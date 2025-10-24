@@ -1,5 +1,27 @@
-.container{
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+.container {
+  padding: $spacing-xl;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: $spacing-lg;
+
+  @include mobile {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: $spacing-md;
+  }
+  @include tablet {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: $spacing-lg;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: $spacing-xl;
+  }
 }

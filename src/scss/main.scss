@@ -1,9 +1,12 @@
 @use "abstracts/variables";
+@use "abstracts/mixins";
 
-@use "base/reset";
 @use "base/fonts";
+@use "base/reset";
 @use "base/base";
 
 @use "layout/grid";
 
 @use "components/header";
+@use "components/footer";
+@use "components/movie-card";

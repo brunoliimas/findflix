@@ -1,11 +1,75 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
 header {
-  height: 280px;
-  padding: 100px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  img {
-    width: 300px;
-    height: auto;
+  .search-content {
+    padding: $spacing-xl;
+    width: 100vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(
+        to top,
+        $background-color 0%,
+        $background-transparent 40%,
+        $background-transparent 60%,
+        $background-color 100%
+      ),
+      url("/assets/images/hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    img {
+      width: 250px;
+      height: auto;
+      margin-bottom: $spacing-xl;
+    }
+    &__title {
+      max-width: 600px;
+      color: $text-color;
+      margin-bottom: $spacing-md;
+      text-align: center;
+    }
+    &__text {
+      max-width: 600px;
+      color: $text-color;
+      margin-bottom: $spacing-xl;
+      text-align: center;
+    }
+    &__search {
+      position: relative;
+      width: 100%;
+      max-width: 600px;
+      input {
+        width: 100%;
+        display: block;
+        padding: $spacing-md $spacing-xl;
+        border-radius: $border-radius-sm;
+        border: none;
+        font-size: 1.2rem;
+        color: $text-color;
+        background-color: $background-card;
+        &::placeholder {
+          color: $text-placeholder;
+          font-size: $text-sm;
+        }
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px $primary-color;
+        }
+      }
+      i {
+        font-size: 32px;
+        position: absolute;
+        top: 50%;
+        right: $spacing-xl;
+        transform: translateY(-50%);
+        color: $text-placeholder;
+        font-size: 1.2rem;
+        
+      }
+    }
   }
 }

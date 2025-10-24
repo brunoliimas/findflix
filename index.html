@@ -16,14 +16,31 @@
 
 <body>
     <header>
-        <img src="assets/images/findflix.svg" alt="Findflix">
+        <div class="search-content">
+            <img src="assets/images/findflix.svg" alt="Findflix">
+            <h1 class="search-content__title">Encontre seu filme ou série favorita</h1>
+            <p class="search-content__text">Pesquise entre centenas de filmes e séries e encontre sua próxima maratona.
+            </p>
+            <div class="search-content__search">
+                <input type="text" placeholder="Digite o nome de um filme ou série..."
+                    aria-label="Buscar filmes e séries">
+                <i class="ph ph-magnifying-glass"></i>
+            </div>
+        </div>
     </header>
     <main>
-        <h1>Encontre seu filme ou série favorita</h1>
-        <p>Pesquise entre centenas de filmes e séries e encontre sua próxima maratona.</p>
-        <div>
-            <input type="text" placeholder="Digite o nome de um filme ou série..." aria-label="Buscar filmes e séries">
-            <i class="ph ph-magnifying-glass"></i>
+        <div class="results-content container">
+            <div class="grid">
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+                <div class="movie-card"></div>
+            </div>
         </div>
     </main>
     <footer>

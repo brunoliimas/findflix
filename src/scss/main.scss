@@ -1,3 +1,9 @@
-@use 'base/reset';
-@use 'base/fonts';
-@use 'base/base';
+@use "abstracts/variables";
+
+@use "base/reset";
+@use "base/fonts";
+@use "base/base";
+
+@use "layout/grid";
+
+@use "components/header";

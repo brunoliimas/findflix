@@ -1,3 +1,7 @@
+@use '../abstracts/variables' as *;
+
 body{
+    background-color: $background-color;
+    color: $text-color;
     font-family: 'Findflix', sans-serif;;
 }

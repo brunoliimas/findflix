@@ -3,19 +3,28 @@ const API_BASE_URL = "https://www.omdbapi.com/";
 
 class Api {
   constructor() {
-    this.moviesCache = new Map();
+    this.searchCache = new Map();
+    this.detailsCache = new Map();
   }
+
   async searchMovies(searchTerm) {
-    if (!searchTerm.trim()) {
+    const term = searchTerm.trim();
+
+    if (!term) {
       return {
         Response: "False",
         Error: "O termo de pesquisa não pode estar vazio",
       };
     }
 
+    if (this.searchCache.has(term)) {
+      console.log(`Retornando pesquisa por "${term}" do cache.`);
+      return this.searchCache.get(term);
+    }
+
     try {
       const URL = `${API_BASE_URL}?apikey=${API_KEY}&s=${encodeURIComponent(
-        searchTerm
+        term
       )}`;
       const response = await fetch(URL);
 
@@ -24,6 +33,11 @@ class Api {
       }
 
       const data = await response.json();
+
+      if (data.Response === "True") {
+        this.searchCache.set(term, data);
+      }
+
       return data;
     } catch (error) {
       console.error("Erro ao procurar filmes e séries:", error);
@@ -36,32 +50,37 @@ class Api {
   }
 
   async getMovieDetails(imdbID) {
-    if(this.detailsCache.has(imdbID)){
-      return this.detailsCache.get(imdbID)
+    if (!imdbID) {
+      console.log(`Retornando detalhes para "${imdbID}" do cache.`);
+      return this.detailsCache.get(imdbID);
     }
 
-
     try {
-      const url = `${API_BASE_URL}?apikey=${API_KEY}&i=${imdbID}`;
-      const response = await fetch(url);
+      const URL = `${API_BASE_URL}?apikey=${API_KEY}&i=${imdbID}`;
+      const response = await fetch(URL);
 
       if (!response.ok) {
         throw new error(`HTTP error: status: ${response.status}`);
       }
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
 
-      if(data.Response === 'True'){
+      if (data.Response === "True") {
         this.detailsCache.set(imdbID, data);
         return data;
       }
-
-      return null;
+      return data;
     } catch (error) {
       console.error("Erro ao obter detalhes do filme:", error);
       return null;
     }
+  }
+  clearCaches(){
+    this.searchCache.clear();
+    this.detailsCache.clear();
+    console.log("Caches foram limpos!!!");
+    
   }
 }
 

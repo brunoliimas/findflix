@@ -7,7 +7,7 @@ async function executarTeste() {
   const detatlhes = await testAPI.getMovieDetails("tt0192968");
 
   console.log("EBAAAA! Resultados recebidos:");
-  console.log(resultados);
+  // console.log(resultados);
   console.log(detatlhes);
 }
 

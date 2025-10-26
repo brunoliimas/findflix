@@ -1,16 +1,129 @@
 @use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
 
 .movie-card {
   width: 100%;
-  height: 457px;
+  // height: 457px;
   background-color: $background-card;
   border-radius: $border-radius;
   overflow: hidden;
   cursor: pointer;
   position: relative;
+  @include hover-lift;
 
-  &:hover {
-    border-color: $primary-color;
-    background-color: $primary-color;
+  &:hover &__overlay,
+  &.show-details &__overlay {
+    opacity: 1;
+    pointer-events: auto;
   }
+  &:hover &__poster img {
+    transform: scale(1.05);
+  }
+
+  &__poster {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    background-color: $secondary-color;
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: $transition-normal;
+    }
+  }
+  &__infos {
+    padding: $spacing-lg;
+  }
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: $spacing-sm;
+  }
+  &__year {
+    font-size: 1rem;
+    opacity: 0.7;
+    margin-bottom: $spacing-sm;
+  }
+  &__type {
+    background-color: $accent-color;
+    padding: $spacing-sm $spacing-xl $spacing-sm $spacing-sm;
+    border-radius: $border-radius-lg;
+    position: absolute;
+    top: 1rem;
+    right: -1rem;
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+  }
+
+  .poster-placeholder {
+    width: 100%;
+    height: 100%;
+    @include flex-center;
+    opacity: 0.3;
+
+    i {
+      &::before {
+        font-size: 3rem;
+      }
+    }
+  }
+  &__overlay {
+    @include glass-effect(0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    // background-color: $background-card;
+    padding: $spacing-lg;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    overflow-y: auto;
+    z-index: $z-overlay;
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      background: $background-color;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $primary-color;
+      border-radius: 10px;
+    }
+  }
+
+  .details-content {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    &__row {
+      margin-bottom: $spacing-sm;
+    }
+  }
+  .detail-label {
+    font-weight: 700;
+    font-size: 0.6rem;
+    color: $primary-color;
+  }
+  .load-details {
+    @include flex-center;
+    height: 100%;
+    opacity: 0.7;
+  }
+  .rating {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin: $spacing-lg 0;
+  }
+  .ph-star {
+    &::before {
+      color: #ffd900;
+    }
+  }
+  
 }

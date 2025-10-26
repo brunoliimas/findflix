@@ -1,6 +1,7 @@
 class HandleSearch {
   constructor() {
     this.loadingSpinner = document.getElementById("loadingSpinner");
+    this.searchIcon = document.getElementById("searchIcon");
     this.messageContainer = document.getElementById("messageContainer");
     this.resultsGrid = document.getElementById("resultsGrid");
     this.searchInput = document.getElementById("searchInput");
@@ -81,7 +82,7 @@ class HandleSearch {
     }
 
     this.messageContainer.innerHTML = `
-    <div class="message ${type === "error" ? "error-message" : ""}">
+    <div class="message${type === "error" ? "error-message" : ""}">
         ${message}
     </div>
     `;
@@ -90,8 +91,10 @@ class HandleSearch {
   showLoading(isLoading) {
     if (isLoading) {
       this.loadingSpinner.classList.add("active");
+      this.searchIcon.style.display = "none";
     } else {
       this.loadingSpinner.classList.remove("active");
+      this.searchIcon.style.display = "flex"
     }
   }
 

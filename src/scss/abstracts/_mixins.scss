@@ -15,3 +15,26 @@
     @content;
   }
 }
+
+// Card
+
+@mixin hover-lift {
+  transition: $transition-normal;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 10px $secondary-color;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin glass-effect($opacity: 0.1) {
+  background: rgba(19, 22, 25, $opacity);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

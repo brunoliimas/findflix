@@ -1,3 +1,13 @@
-main{
-    flex: 1;
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+main {
+  flex: 1;
+  .message {
+    padding: $spacing-sm;
+    border: $background-card solid 1px;
+    border-radius: $border-radius-sm;
+    @include flex-center;
+    font-weight: 300;
+  }
 }

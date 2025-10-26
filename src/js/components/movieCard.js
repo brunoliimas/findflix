@@ -13,11 +13,11 @@ class MovieCard {
                 ? `<img src="${posterUrl}" alt="${this.scapeHtml(
                     movie.Title
                   )}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                  <div class="poster_placeholder" style="display:none;">
+                  <div class="poster-placeholder" style="display:none;">
                     <i class="ph ph-image-broken"></i>
                   </div>
                 `
-                : '<div class="poster_placeholder"><i class="ph ph-image-broken"></i></div>'
+                : '<div class="poster-placeholder"><i class="ph ph-image-broken"></i></div>'
             }
         </div>
         <div class="movie-card__infos">

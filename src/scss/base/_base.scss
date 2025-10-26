@@ -14,3 +14,9 @@ h1 {
 p {
   font-size: clamp(1rem, 3vw, 1.5rem);
 }
+
+@keyframes spin {
+  to {
+    transform: rotate(180deg);
+  }
+}

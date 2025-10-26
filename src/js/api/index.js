@@ -76,6 +76,8 @@ class Api {
       return null;
     }
   }
+
+
   clearCaches(){
     this.searchCache.clear();
     this.detailsCache.clear();
@@ -84,4 +86,4 @@ class Api {
   }
 }
 
-const api = new Api();
+const omdbApi = new Api();

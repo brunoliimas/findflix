@@ -7,6 +7,10 @@ Aplicação de busca instantânea de filmes e séries usando a API do OMDB.
 Interface responsiva criada para fazer buscas e exibir os resultados em tempo real conforme o usuário digita no campo de busca.
 Ao passar o mouse (ou tocar em mobile) aparecerá mais detalhes do título em questão.
 
+## Link de teste
+
+Acessar o [Findflix](https://brunoliimas.github.io/findflix/)
+
 ## Template do projeto
 
 ![UI projeto](assets/images/UI.png)

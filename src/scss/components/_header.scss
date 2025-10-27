@@ -82,3 +82,42 @@ header {
     }
   }
 }
+.settings-btn {
+  position: absolute;
+  top: $spacing-lg;
+  right: $spacing-lg;
+  background: $background-transparent;
+  @include glass-effect(.2);
+  border: 1px solid $border-color;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-color;
+  cursor: pointer;
+  transition: $transition-fast;
+  z-index: 100;
+
+  i {
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    background: $dark-color-tranparent;
+    border-color: $primary-color;
+    transform: rotate(90deg);
+  }
+
+  @include mobile {
+    width: 40px;
+    height: 40px;
+    top: $spacing-md;
+    right: $spacing-md;
+
+    i {
+      font-size: 1.2rem;
+    }
+  }
+}

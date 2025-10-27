@@ -18,7 +18,7 @@ class HandleSearch {
     }, this.DEBOUNCE_DELAY);
 
     this.searchInput.addEventListener("input", (e) => {
-      console.log("Digitando:", e.target.value);
+      // console.log("Digitando:", e.target.value);
       debounceSearch(e.target.value);
     });
 
@@ -37,10 +37,10 @@ class HandleSearch {
 
   async performSearch(searchTerm) {
     const term = searchTerm.trim();
-    console.log("Buscando por:", term);
+    // console.log("Buscando por:", term);
 
     if (!term) {
-      console.log("Campo de busca vazio");
+      // console.log("Campo de busca vazio");
       this.clearResults();
       this.showLoading(false);
       this.showMessage(
@@ -50,22 +50,22 @@ class HandleSearch {
     }
     try {
       this.showLoading(true);
-      console.log("Chamando API...");
+      // console.log("Chamando API...");
       const data = await omdbApi.searchMovies(term);
 
-      console.log("Retorno da API:", data);
+      // console.log("Retorno da API:", data);
 
       if (data.Response === "True") {
         this.displayResults(data.Search);
         this.showMessage("");
       } else {
-        console.warn("Nenhum resultado:", data.Error);
+        // console.warn("Nenhum resultado:", data.Error);
         this.clearResults();
         this.showMessage(data.Error || "Nenhum resultado encontrado 😭");
       }
     } catch (error) {
-      console.error("Erro na busca:", error);
-      console.error("Search error", error);
+      // console.error("Erro na busca:", error);
+      // console.error("Search error", error);
       this.showMessage(
         "Erro ao buscar filmes e series. Tente novamente",
         "error"
@@ -104,7 +104,7 @@ class HandleSearch {
 
   displayResults(movies) {
     this.resultsGrid.innerHTML = "";
-    console.log("Renderizando cards:", movies.length);
+    // console.log("Renderizando cards:", movies.length);
 
     movies.forEach((movie) => {
       const card = MovieCard.create(movie);

@@ -84,16 +84,7 @@
     transition: opacity 0.3s ease;
     overflow-y: auto;
     z-index: $z-overlay;
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-    &::-webkit-scrollbar-track {
-      background: $background-color;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: $primary-color;
-      border-radius: 10px;
-    }
+    @include custom-scrollbar;
   }
 
   .details-content {
@@ -125,5 +116,4 @@
       color: #ffd900;
     }
   }
-  
 }

@@ -121,7 +121,7 @@ header .search-content {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to top, #09090b 0%, rgba(9, 9, 11, 0) 40%, rgba(9, 9, 11, 0) 60%, #09090b 100%), url("/assets/images/hero.webp");
+  background-image: linear-gradient(to top, #09090b 0%, rgba(9, 9, 11, 0) 40%, rgba(9, 9, 11, 0) 60%, #09090b 100%), url("https://brunoliimas.github.io/findflix/assets/images/hero.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
